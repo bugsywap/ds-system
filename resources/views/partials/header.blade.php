@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite(['resources/css/app.css','resources/js/app.js'])
+    @vite(['resources/css/app.css','resources/js/app.js' ,'resources/js/chart', 'resources/js/dropdown_pl'])
     <title>Welcome to DentaSync</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('imgs/favicon.ico') }}">
 </head>
@@ -17,8 +17,8 @@
         </svg>
     </button>
 
-    <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full tabletm:translate-x-0" aria-label="Sidebar">
-        <div class="h-full px-3 py-4 overflow-y-auto bg-malibu-900">
+    <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-52 h-screen transition-transform -translate-x-full tabletm:translate-x-0" aria-label="Sidebar">
+        <div class="h-full px-3 py-4 overflow-y-auto bg-curious-blue-800">
             <a href="#home" class="flex">
                 <img class="h-8 tablet:h-10 laptops:h-12 mx-auto mt-4 mb-8" src="{{ asset('imgs/ds.webp') }}" alt="dentasync-logo">
             </a>

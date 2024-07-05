@@ -16,6 +16,11 @@ class CrudController extends Controller
         return view('ds.index');
     }
 
+    public function pl()
+    {
+        return view('ds.pl');
+    }
+
     public function add_patient()
     {
         return view('ds.add_patient');
