@@ -1,6 +1,6 @@
 @include('partials.header')
 
-<div id="main-cont-index" class="font-poppins p-4 tabletm:ml-52">
+<div id="main-cont-index" class="font-poppins p-4 tabletm:ml-56">
     <div id="main-cont-wrapper" class="p-4 border-2 border-gray-100 border-dashed rounded-lg">
         <h1 class="text-2xl tablet:text-3xl font-semibold text-curious-blue-600">Hello, Dr. John Doe</h1>
         <p class="font-light text-sm text-curious-blue-600">See what's happening in your clinic today.</p>

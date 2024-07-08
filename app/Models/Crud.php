@@ -12,6 +12,6 @@ class Crud extends Model
     protected $collection = 'add_patient';
 
     protected $fillable = [
-        'first_name', 'last_name', 'phone'
+        'patient_id', 'patient_name', 'age', 'phone', 'doctor', 'service'
     ];
 }

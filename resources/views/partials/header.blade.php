@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite(['resources/css/app.css','resources/js/app.js' ,'resources/js/chart', 'resources/js/dropdown_pl'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/chart.js', 'resources/js/dropdown_pl.js'])
     <title>Welcome to DentaSync</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('imgs/favicon.ico') }}">
 </head>
@@ -17,46 +17,36 @@
         </svg>
     </button>
 
-    <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-52 h-screen transition-transform -translate-x-full tabletm:translate-x-0" aria-label="Sidebar">
+    <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-56 h-screen transition-transform -translate-x-full tabletm:translate-x-0" aria-label="Sidebar">
         <div class="h-full px-3 py-4 overflow-y-auto bg-curious-blue-800">
             <a href="#home" class="flex">
                 <img class="h-8 tablet:h-10 laptops:h-12 mx-auto mt-4 mb-8" src="{{ asset('imgs/ds.webp') }}" alt="dentasync-logo">
             </a>
             <ul class="space-y-8 font-medium text-center">
                 <li>
-                    <a href="#" class="flex items-center p-3 text-gray-50 rounded-lg hover:bg-shamrock-400 focus:bg-shamrock-400 group">
-
-
+                    <a href="{{ route('index') }}" class="flex items-center p-3 text-gray-50 rounded-lg hover:bg-shamrock-400 focus:bg-shamrock-400 group {{ Route::currentRouteName() == 'index' ? 'bg-shamrock-400' : '' }}">
                         <span class="flex-1 whitespace-nowrap group-hover:text-dswhite group-focus:text-dswhite">Dashboard</span>
                     </a>
                 </li>
-
                 <li>
-                    <a href="#" class="flex items-center p-3 text-gray-50 rounded-lg hover:bg-shamrock-400 focus:bg-shamrock-400 group">
-
-
-                        <span class="flex-1 whitespace-nowrap group-hover:text-dswhite group-focus:text-dswhite">Patients</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="flex items-center p-3 text-gray-50 rounded-lg hover:bg-shamrock-400 focus:bg-shamrock-400 group">
-
-
-                        <span class="flex-1 whitespace-nowrap group-hover:text-dswhite group-focus:text-dswhite">Calendar</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="flex items-center p-3 text-gray-50 rounded-lg hover:bg-shamrock-400 focus:bg-shamrock-400 group">
-
-
-
+                    <a href="{{ route('appointments') }}" class="flex items-center p-3 text-gray-50 rounded-lg hover:bg-shamrock-400 focus:bg-shamrock-400 group {{ Route::currentRouteName() == 'appointments' ? 'bg-shamrock-400' : '' }}">
                         <span class="flex-1 whitespace-nowrap group-hover:text-dswhite group-focus:text-dswhite">Appointments</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center p-3 text-gray-50 rounded-lg hover:bg-shamrock-400 focus:bg-shamrock-400 group">
+                    <a href="{{ route('calendar') }}" class="flex items-center p-3 text-gray-50 rounded-lg hover:bg-shamrock-400 focus:bg-shamrock-400 group {{ Route::currentRouteName() == 'calendar' ? 'bg-shamrock-400' : '' }}">
+                        <span class="flex-1 whitespace-nowrap group-hover:text-dswhite group-focus:text-dswhite">Calendar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('patient_list') }}" class="flex items-center p-3 text-gray-50 rounded-lg hover:bg-shamrock-400 focus:bg-shamrock-400 group {{ Route::currentRouteName() == 'patient_list' ? 'bg-shamrock-400' : '' }}">
+                        <span class="flex-1 whitespace-nowrap group-hover:text-dswhite group-focus:text-dswhite">Patients</span>
+                    </a>
+                </li>
 
 
+                <li>
+                    <a href="{{ route('visual_gallery') }}" class="flex items-center p-3 text-gray-50 rounded-lg hover:bg-shamrock-400 focus:bg-shamrock-400 group {{ Route::currentRouteName() == 'visual_gallery' ? 'bg-shamrock-400' : '' }}">
                         <span class="flex-1 whitespace-nowrap group-hover:text-dswhite group-focus:text-dswhite">Visual Gallery</span>
                     </a>
                 </li>
@@ -64,8 +54,6 @@
             <ul class="pt-4 mt-8 space-y-2 font-medium border-t text-center">
                 <li>
                     <a href="#" class="flex items-center p-3 mt-4 text-gray-50 rounded-lg border border-gray-50 hover:bg-shamrock-400 focus:bg-shamrock-400 group">
-
-
                         <span class="flex-1 whitespace-nowrap group-hover:text-dswhite group-focus:text-dswhite">Logout</span>
                     </a>
                 </li>

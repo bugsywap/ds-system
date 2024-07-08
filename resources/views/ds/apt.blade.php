@@ -1,11 +1,11 @@
 @include('partials.header')
 
-<div id="main-cont-pl" class="font-poppins p-4 tabletm:ml-56">
+<div id="main-cont-apt" class="font-poppins p-4 tabletm:ml-56">
     <div id="main-cont-wrapper" class="p-4 border-2 border-gray-100 border-dashed rounded-lg">
-        <h1 class="text-2xl tablet:text-3xl font-semibold text-curious-blue-600">Patient List</h1>
-        <p class="font-light text-sm text-curious-blue-600">A list of all your patients.</p>
+        <h1 class="text-2xl tablet:text-3xl font-semibold text-curious-blue-600">Appointments</h1>
+        <p class="font-light text-sm text-curious-blue-600">A list of your new and old bookings</p>
         <button id="dropdownDelayButton" data-dropdown-toggle="dropdownDelay" class="tabletm:hidden text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mt-4" type="button">
-            <span>All Patients</span>
+            <span>Notifications</span>
             <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
             </svg>
@@ -15,13 +15,13 @@
         <div id="dropdownDelay" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDelayButton">
                 <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-target="#all-patients" data-label="All Patients">All Patients</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-target="#styled-profile" data-label="Notifications">Notifications</a>
                 </li>
                 <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-target="#new-patients" data-label="New Patients">New Patients</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-target="#styled-dashboard" data-label="Pending">Pending</a>
                 </li>
                 <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-target="#old-patients" data-label="Old Patients">Old Patients</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-target="#styled-settings" data-label="Archive">Archive</a>
                 </li>
             </ul>
         </div>
@@ -30,20 +30,20 @@
         <div class="mb-4 border-b border-gray-200 phone:hidden tabletm:block">
             <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-styled-tab" data-tabs-toggle="#default-styled-tab-content" data-tabs-active-classes="text-curious-blue-600 hover:text-curious-blue-600 border-curious-blue-600" data-tabs-inactive-classes="text-gray-500 hover:text-gray-600 border-gray-100 hover:border-gray-300" role="tablist">
                 <li class="me-2" role="presentation">
-                    <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-styled-tab" data-tabs-target="#all-patients" type="button" role="tab" aria-controls="profile" aria-selected="false">All Patients</button>
+                    <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-styled-tab" data-tabs-target="#styled-profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Notifcations</button>
                 </li>
                 <li class="me-2" role="presentation">
-                    <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300" id="dashboard-styled-tab" data-tabs-target="#new-patients" type="button" role="tab" aria-controls="dashboard" aria-selected="false">New Patients</button>
+                    <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300" id="dashboard-styled-tab" data-tabs-target="#styled-dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">Pending</button>
                 </li>
                 <li class="me-2" role="presentation">
-                    <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300" id="settings-styled-tab" data-tabs-target="#old-patients" type="button" role="tab" aria-controls="settings" aria-selected="false">Old Patients</button>
+                    <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300" id="settings-styled-tab" data-tabs-target="#styled-settings" type="button" role="tab" aria-controls="settings" aria-selected="false">Archive</button>
                 </li>
             </ul>
         </div>
 
         <!-- Tab Content -->
         <div id="default-styled-tab-content" class="mt-4">
-            <div class="hidden p-4 rounded-lg bg-curious-blue-200" id="all-patients" role="tabpanel" aria-labelledby="all-patients">
+            <div class="hidden p-4 rounded-lg bg-curious-blue-200" id="styled-profile" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="">
                     <label for="table-search" class="sr-only">Search</label>
                     <div class="relative mt-1">
@@ -83,38 +83,37 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($all_patients as $patients)
-                            <tr class="bg-white border-b ">
+                            <tr class="bg-white border-b">
                                 <td class="px-6 py-4">
-                                    {{$patients -> patient_id}}
+                                    1
                                 </td>
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    {{$patients -> patient_name}}
+                                    Donut Mr.
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{$patients -> age}}
+                                    30
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{$patients -> phone}}
+                                    0999999999
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{$patients -> doctor}}
+                                    Dra. Pokers
                                 </td>
                                 <td class="px-6 py-4 break-words">
-                                    {{$patients -> service}}
+                                    Sangla Ipin NA MALAKI WITH DIAMONDS AND GOLD SA ILALIM TAS UMAAPOY PAG BUMUGA
                                 </td>
                                 <td class="px-6 py-4">
                                     <button class="bg-shamrock-400 text-white rounded-lg px-6 py-2 hover:bg-shamrock-500">Patient Info</button>
 
                                 </td>
                             </tr>
-                            @endforeach
+
                         </tbody>
                     </table>
 
                 </div>
             </div>
-            <div class="hidden p-4 rounded-lg bg-curious-blue-200" id="new-patients" role="tabpanel" aria-labelledby="new-patients">
+            <div class="hidden p-4 rounded-lg bg-curious-blue-200" id="styled-dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
                 <div class="">
                     <label for="table-search" class="sr-only">Search</label>
                     <div class="relative mt-1">
@@ -131,51 +130,46 @@
                         <thead class="text-xs text-gray-700 uppercase bg-curious-blue-50">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
-                                    Patient ID
-                                </th>
-                                <th scope="col" class="px-6 py-3">
                                     Patient Name
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Age
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Mobile
+                                    Schedule
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Dr. Assigned
+                                    Service
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Recent Treatment
+                                    Medical History
                                 </th>
+
                                 <th scope="col" class="px-6 py-3">
                                     Action
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-
                             <tr class="bg-white border-b ">
-                                <td class="px-6 py-4">
-                                    1
-                                </td>
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    Dugdug
+                                    Donut Mr.
                                 </th>
                                 <td class="px-6 py-4">
-                                    19
+                                    30
                                 </td>
                                 <td class="px-6 py-4">
-                                    09123456789
+                                    July 10, 2031
                                 </td>
                                 <td class="px-6 py-4">
-                                    Dr. Pang Hee
+                                    Kunin Wisdom Tooth
                                 </td>
-                                <td class="px-6 py-4">
-                                    Braces gamit alambre
+                                <td class="px-6 py-4 w-96">
+                                    Lumolobo Mata , Tumitibok puso pag nakikita ka, nag dadry lalamunan pag kausap ka
                                 </td>
-                                <td class="px-6 py-4">
-                                    <button class="bg-shamrock-400 text-white rounded-lg px-6 py-2 hover:bg-shamrock-500">Patient Info</button>
+                                <td class="flex justify-between items-center px-6 py-4 w-96">
+                                    <button class="bg-shamrock-400 text-white rounded-lg px-6 py-2 hover:bg-shamrock-500">Confirm Patient</button>
+                                    <button class="bg-curious-blue-400 text-white rounded-lg px-5 py-2 hover:bg-curious-blue-500">Reschedule Patient</button>
                                 </td>
                             </tr>
 
@@ -185,7 +179,7 @@
                 </div>
             </div>
         </div>
-        <div class="hidden p-4 rounded-lg bg-curious-blue-200" id="old-patients" role="tabpanel" aria-labelledby="old-patients">
+        <div class="hidden p-4 rounded-lg bg-curious-blue-200" id="styled-settings" role="tabpanel" aria-labelledby="settings-tab">
             <div class="">
                 <label for="table-search" class="sr-only">Search</label>
                 <div class="relative mt-1">
@@ -282,11 +276,4 @@
         </nav>
     </div>
 </div>
-
-
-
-
-
-
-
 @include('partials.footer')
