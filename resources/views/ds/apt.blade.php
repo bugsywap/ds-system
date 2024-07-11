@@ -1,9 +1,9 @@
 @include('partials.header')
-
+@vite(['resources/js/dropdown_apt.js'])
 <div id="main-cont-apt" class="font-poppins p-4 tabletm:ml-56">
     <div id="main-cont-wrapper" class="p-4 border-2 border-gray-100 border-dashed rounded-lg">
         <h1 class="text-2xl tablet:text-3xl font-semibold text-curious-blue-600">Appointments</h1>
-        <p class="font-light text-sm text-curious-blue-600">A list of your new and old bookings</p>
+        <p class="font-regular text-sm text-curious-blue-600">A list of your new and old bookings</p>
         <button id="dropdownDelayButton" data-dropdown-toggle="dropdownDelay" class="tabletm:hidden text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mt-4" type="button">
             <span>Notifications</span>
             <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -169,7 +169,7 @@
                                 </td>
                                 <td class="flex justify-between items-center px-6 py-4 w-96">
                                     <button class="bg-shamrock-400 text-white rounded-lg px-6 py-2 hover:bg-shamrock-500">Confirm Patient</button>
-                                    <button class="bg-curious-blue-400 text-white rounded-lg px-5 py-2 hover:bg-curious-blue-500">Reschedule Patient</button>
+                                    <button class="bg-curious-blue-400 text-white rounded-lg px-4 py-2 hover:bg-curious-blue-500">Reschedule Patient</button>
                                 </td>
                             </tr>
 

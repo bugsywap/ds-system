@@ -29,6 +29,12 @@ class CrudController extends Controller
         return view('ds.add_patient');
     }
 
+    public function patient_info($id)
+    {
+        $patient = Crud::findOrFail($id);
+        return view('ds.patient_info', ['patient' => $patient]);
+    }
+
     public function calendar()
     {
         return view('ds.calendar');
@@ -63,7 +69,6 @@ class CrudController extends Controller
             'service' => 'required|string|max:255',
         ]);
 
-
         $currentYear = Carbon::now()->format('y');
 
         // Get the latest patient record to determine the last custom ID
@@ -72,8 +77,8 @@ class CrudController extends Controller
         // Determine the next custom ID
         if ($latestPatient && $latestPatient->patient_id) {
             $lastIdParts = explode('-', $latestPatient->patient_id);
-            $lastYear = $lastIdParts[0];
-            $lastNumber = (int) $lastIdParts[1];
+            $lastYear = $lastIdParts[1]; // Adjusted index because of the letter
+            $lastNumber = (int) $lastIdParts[2]; // Adjusted index because of the letter
 
             if ($lastYear == $currentYear) {
                 $newNumber = $lastNumber + 1;
@@ -84,8 +89,8 @@ class CrudController extends Controller
             $newNumber = 1; // No existing records, start with 1
         }
 
-
-        $newCustomId = sprintf('%s-%04d', $currentYear, $newNumber);
+        // Add the letter 'A' in front of the custom ID
+        $newCustomId = sprintf('A-%s-%04d', $currentYear, $newNumber);
 
         // Create a new patient record with the custom ID
         $crud = new Crud();
@@ -99,6 +104,7 @@ class CrudController extends Controller
 
         return redirect()->route('index')->with('message', 'Patient Added Successfully!');
     }
+
 
 
     /**

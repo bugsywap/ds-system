@@ -12,6 +12,7 @@ Route::get('/ds/vg', [CrudController::class, 'vg'])->name('visual_gallery');
 Route::get('/ds/apt', [CrudController::class, 'apt'])->name('appointments');
 Route::get('/ds/add_patient', [CrudController::class, 'add_patient'])->name('add_patient');
 Route::post('/ds/addPatient', [CrudController::class, 'store'])->name('addPatient');
+Route::get('/ds/patients/{id}', [CrudController::class, 'patient_info'])->name('patient_info');
 
 
 Route::get('/', function () {

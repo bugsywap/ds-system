@@ -1,9 +1,10 @@
 @include('partials.header')
+@vite(['resources/js/dropdown_pl.js'])
 
 <div id="main-cont-pl" class="font-poppins p-4 tabletm:ml-56">
     <div id="main-cont-wrapper" class="p-4 border-2 border-gray-100 border-dashed rounded-lg">
         <h1 class="text-2xl tablet:text-3xl font-semibold text-curious-blue-600">Patient List</h1>
-        <p class="font-light text-sm text-curious-blue-600">A list of all your patients.</p>
+        <p class="font-regular text-sm text-curious-blue-600">A list of all your patients.</p>
         <button id="dropdownDelayButton" data-dropdown-toggle="dropdownDelay" class="tabletm:hidden text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mt-4" type="button">
             <span>All Patients</span>
             <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -104,8 +105,7 @@
                                     {{$patients -> service}}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <button class="bg-shamrock-400 text-white rounded-lg px-6 py-2 hover:bg-shamrock-500">Patient Info</button>
-
+                                    <a href="{{ route('patient_info', $patients->_id) }}" class="bg-shamrock-400 text-white rounded-lg px-6 py-2 hover:bg-shamrock-500">Patient Info</a>
                                 </td>
                             </tr>
                             @endforeach

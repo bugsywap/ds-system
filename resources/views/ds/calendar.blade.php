@@ -6,7 +6,7 @@
             <h1 class="text-2xl tablet:text-3xl font-semibold text-curious-blue-600">Calendar</h1>
             <button class="py-2 px-5 bg-shamrock-400 rounded-lg text-white hover:bg-shamrock-500">Add Patient</button>
         </div>
-        <p class="font-light text-sm text-curious-blue-600">To see your daily / weekly schedule.</p>
+        <p class="font-regular text-sm text-curious-blue-600">To see your daily / weekly schedule.</p>
         <div class="container mt-4">
             <div class="wrapper bg-white rounded shadow w-full ">
                 <div class="header flex justify-between border-b p-2">

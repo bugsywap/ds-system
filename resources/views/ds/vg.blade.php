@@ -3,7 +3,7 @@
 <div id="main-cont-vg" class="font-poppins p-4 tabletm:ml-56">
     <div id="main-cont-wrapper" class="p-4 border-2 border-gray-100 border-dashed rounded-lg">
         <h1 class="text-2xl tablet:text-3xl font-semibold text-curious-blue-600">Visual Gallery</h1>
-        <p class="font-light mb-4  text-sm text-curious-blue-600">A helper for your visual needs</p>
+        <p class="font-regular text-sm text-curious-blue-600">A helper for your visual needs</p>
 
         <div class="grid grid-cols-1 tablet:grid-cols-2 laptops:grid-cols-3 gap-2 tabletm:gap-4 desktops:gap-8 desktopm:gap-10 place-items-center">
             <div class="relative max-w-sm desktops:max-w-lg bg-white border border-gray-200 rounded-lg shadow-md h-[31rem] laptops:h-[30rem]">

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/chart.js', 'resources/js/dropdown_pl.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>Welcome to DentaSync</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('imgs/favicon.ico') }}">
 </head>
