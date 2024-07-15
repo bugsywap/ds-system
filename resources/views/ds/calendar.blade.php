@@ -4,7 +4,7 @@
     <div id="main-cont-wrapper" class="p-4 border-2 border-gray-100 border-dashed rounded-lg">
         <div class="flex justify-between items-center">
             <h1 class="text-2xl tablet:text-3xl font-semibold text-curious-blue-600">Calendar</h1>
-            <a href="{{ route('add_patient') }}" class="py-2 px-5 bg-shamrock-400 rounded-lg text-white hover:bg-shamrock-500">Add Patient</a>
+            <a href="{{ route('add_patient') }}" class="py-2 px-5 bg-shamrock-400 rounded-lg text-white hover:bg-shamrock-500">Schedule Patient</a>
         </div>
         <p class="font-regular text-sm text-curious-blue-600">To see your daily / weekly schedule.</p>
         <div class="container mt-4">

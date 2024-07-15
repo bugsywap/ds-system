@@ -1,9 +1,36 @@
 @include('partials.header')
-@vite(['resources/js/dropdown_pl.js'])
+@vite(['resources/js/dropdown_pl.js' , 'resources/js/add_patient_banner.js'])
 
 <div id="main-cont-pl" class="font-poppins p-4 tabletm:ml-56">
+    <div class="relative">
+        <div id="alert-2" class="absolute top-0 right-0 flex items-center w-[25rem] p-4 mb-4 text-shamrock-800 rounded-lg bg-shamrock-50 {{ Session::has('message') ? '' : 'hidden' }}" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="#383838" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11.917 9.724 16.5 19 7.5" />
+            </svg>
+
+            <span class="sr-only">Info</span>
+            <div class="ms-3 text-sm font-medium">
+                {{ Session::get('message') }}
+            </div>
+            <button type="button" class="ms-auto -mx-1.5 -my-1.5 text-shamrock-500 rounded-lg focus:ring-2 focus:ring-shamrock-400 p-1.5 hover:bg-shamrock-200 inline-flex items-center justify-center h-8 w-8" data-dismiss-target="#alert-2" aria-label="Close">
+                <span class="sr-only">Close</span>
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                </svg>
+            </button>
+            <div id="loading" class="absolute bottom-0 left-0 h-1 bg-shamrock-300"></div>
+        </div>
+    </div>
+
     <div id="main-cont-wrapper" class="p-4 border-2 border-gray-100 border-dashed rounded-lg">
-        <h1 class="text-2xl tablet:text-3xl font-semibold text-curious-blue-600">Patient List</h1>
+        <div class="flex justify-between items-center">
+            <h1 class="text-2xl tablet:text-3xl font-semibold text-curious-blue-600">Patient List</h1>
+            <a href="{{ route('add_patient') }}" class="flex justify-between items-center py-2 px-5 bg-shamrock-400 rounded-lg text-white hover:bg-shamrock-500">
+                <svg class="w-4 h-4 me-2 text-shamrock-400 group-hover:text-gray-500 ">
+                    <path stroke=" white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 8h14m-7 7V1" />
+                </svg>
+                Add Patient</a>
+        </div>
         <p class="font-regular text-sm text-curious-blue-600">A list of all your patients.</p>
         <button id="dropdownDelayButton" data-dropdown-toggle="dropdownDelay" class="tabletm:hidden text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mt-4" type="button">
             <span>All Patients</span>
@@ -44,8 +71,8 @@
 
         <!-- Tab Content -->
         <div id="default-styled-tab-content" class="mt-4">
-            <div class="hidden p-4 rounded-lg bg-curious-blue-200" id="all-patients" role="tabpanel" aria-labelledby="all-patients">
-                <div class="">
+            <div class="hidden p-4 rounded-lg" id="all-patients" role="tabpanel" aria-labelledby="all-patients">
+                <div class="flex justify-between items-center">
                     <label for="table-search" class="sr-only">Search</label>
                     <div class="relative mt-1">
                         <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -58,7 +85,7 @@
                 </div>
                 <div class="relative overflow-x-auto shadow-md mt-4 rounded-lg">
                     <table class="w-full table-fixed text-sm text-left rtl:text-right text-gray-500">
-                        <thead class="text-xs text-gray-700 uppercase bg-curious-blue-50">
+                        <thead class="text-xs text-gray-700 uppercase bg-curious-blue-100">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
                                     Patient ID
@@ -85,7 +112,7 @@
                         </thead>
                         <tbody>
                             @foreach ($all_patients as $patients)
-                            <tr class="bg-white border-b ">
+                            <tr class="bg-white border-b">
                                 <td class="px-6 py-4">
                                     {{$patients -> patient_id}}
                                 </td>
@@ -105,7 +132,7 @@
                                     {{$patients -> service}}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="{{ route('patient_info', $patients->_id) }}" class="bg-shamrock-400 text-white rounded-lg px-6 py-2 hover:bg-shamrock-500">Patient Info</a>
+                                    <a href="{{ route('patient_info', $patients->_id) }}" class="bg-curious-blue-500 text-white rounded-lg px-6 py-2 hover:bg-curious-blue-600">Patient Info</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -114,8 +141,8 @@
 
                 </div>
             </div>
-            <div class="hidden p-4 rounded-lg bg-curious-blue-200" id="new-patients" role="tabpanel" aria-labelledby="new-patients">
-                <div class="">
+            <div class="hidden p-4 rounded-lg" id="new-patients" role="tabpanel" aria-labelledby="new-patients">
+                <div class="flex justify-between items-center">
                     <label for="table-search" class="sr-only">Search</label>
                     <div class="relative mt-1">
                         <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -128,7 +155,7 @@
                 </div>
                 <div class="relative overflow-x-auto shadow-md mt-4 rounded-lg">
                     <table class="w-full text-sm text-left rtl:text-right text-gray-500">
-                        <thead class="text-xs text-gray-700 uppercase bg-curious-blue-50">
+                        <thead class="text-xs text-gray-700 uppercase bg-curious-blue-100">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
                                     Patient ID
@@ -175,7 +202,7 @@
                                     Braces gamit alambre
                                 </td>
                                 <td class="px-6 py-4">
-                                    <button class="bg-shamrock-400 text-white rounded-lg px-6 py-2 hover:bg-shamrock-500">Patient Info</button>
+                                    <button class="bg-curious-blue-500 text-white rounded-lg px-6 py-2 hover:bg-curious-blue-600">Patient Info</button>
                                 </td>
                             </tr>
 
@@ -185,8 +212,8 @@
                 </div>
             </div>
         </div>
-        <div class="hidden p-4 rounded-lg bg-curious-blue-200" id="old-patients" role="tabpanel" aria-labelledby="old-patients">
-            <div class="">
+        <div class="hidden p-4 rounded-lg" id="old-patients" role="tabpanel" aria-labelledby="old-patients">
+            <div class="flex justify-between items-center">
                 <label for="table-search" class="sr-only">Search</label>
                 <div class="relative mt-1">
                     <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -199,7 +226,7 @@
             </div>
             <div class="relative overflow-x-auto shadow-md mt-4 rounded-lg">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500">
-                    <thead class="text-xs text-gray-700 uppercase bg-curious-blue-50">
+                    <thead class="text-xs text-gray-700 uppercase bg-curious-blue-100">
                         <tr>
                             <th scope="col" class="px-6 py-3">
                                 Patient ID
@@ -245,7 +272,7 @@
                                 Burst fade na ipin
                             </td>
                             <td class="px-6 py-4">
-                                <button class="bg-shamrock-400 text-white rounded-lg px-6 py-2 hover:bg-shamrock-500">Patient Info</button>
+                                <button class="bg-curious-blue-500 text-white rounded-lg px-6 py-2 hover:bg-curious-blue-600">Patient Info</button>
 
                             </td>
                         </tr>

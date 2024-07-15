@@ -39,10 +39,11 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('patient_list') }}" class="flex items-center p-3 text-gray-50 rounded-lg hover:bg-shamrock-400 focus:bg-shamrock-400 group {{ Route::currentRouteName() == 'patient_list' ? 'bg-shamrock-400' : '' }}">
+                    <a href="{{ route('patient_list') }}" class="flex items-center p-3 text-gray-50 rounded-lg hover:bg-shamrock-400 focus:bg-shamrock-400 group {{ in_array(Route::currentRouteName(), ['patient_list', 'patient_info']) ? 'bg-shamrock-400' : '' }}">
                         <span class="flex-1 whitespace-nowrap group-hover:text-dswhite group-focus:text-dswhite">Patients</span>
                     </a>
                 </li>
+
 
 
                 <li>

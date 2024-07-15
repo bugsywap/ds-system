@@ -10,6 +10,7 @@ export default defineConfig({
                 "resources/js/chart.js",
                 "resources/js/dropdown_pl.js",
                 "resources/js/dropdown_apt.js",
+                "resources/js/add_patient_banner.js",
             ],
             refresh: true,
         }),

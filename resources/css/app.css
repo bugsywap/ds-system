@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#alert-2 {
+    transition: transform 0.5s, opacity 0.5s;
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+#alert-2.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+#loading {
+    transition: width 3s linear;
+}

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Log;
 use App\Models\Crud;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Session;
 
 class CrudController extends Controller
 {
@@ -102,7 +103,7 @@ class CrudController extends Controller
         $crud->service = $validatedData['service'];
         $crud->save();
 
-        return redirect()->route('index')->with('message', 'Patient Added Successfully!');
+        return redirect()->route('patient_list')->with('message', 'Patient Added Successfully!');
     }
 
 
@@ -114,27 +115,36 @@ class CrudController extends Controller
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Crud $Crud)
+    public function edit_patient($id)
     {
-        //
+        $crud = Crud::find($id);
+        return view('ds.edit_patient', ['value' => $crud]);
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Crud $Crud)
+    public function edit(Request $request)
     {
-        //
+        $crud = Crud::find($request->id);
+
+        // Check if the patient record is found
+        if (!$crud) {
+            return redirect()->route('patient_list')->with('error', 'Patient not found!');
+        }
+
+        // Update patient information
+        $crud->patient_name = $request->patient_name;
+        $crud->age = $request->age;
+        $crud->phone = $request->phone;
+        $crud->doctor = $request->doctor;
+        $crud->service = $request->service;
+
+        $crud->save();
+
+        return redirect()->route('patient_list')->with('message', 'Patient Updated Successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Crud $Crud)
+    public function delete(Crud $Crud)
     {
         //
     }
