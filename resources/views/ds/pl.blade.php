@@ -3,11 +3,10 @@
 
 <div id="main-cont-pl" class="font-poppins p-4 tabletm:ml-56">
     <div class="relative">
-        <div id="alert-2" class="absolute top-0 right-0 flex items-center w-[25rem] p-4 mb-4 text-shamrock-800 rounded-lg bg-shamrock-50 {{ Session::has('message') ? '' : 'hidden' }}" role="alert">
+        <div id="alert-2" class="fixed bottom-4 right-4 transform transition-transform duration-500 translate-y-full flex items-center w-[25rem] p-4 mb-4 text-shamrock-800 rounded-lg bg-shamrock-50 {{ Session::has('message') ? '' : 'hidden' }}" role="alert">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="#383838" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11.917 9.724 16.5 19 7.5" />
             </svg>
-
             <span class="sr-only">Info</span>
             <div class="ms-3 text-sm font-medium">
                 {{ Session::get('message') }}
@@ -21,6 +20,9 @@
             <div id="loading" class="absolute bottom-0 left-0 h-1 bg-shamrock-300"></div>
         </div>
     </div>
+
+
+
 
     <div id="main-cont-wrapper" class="p-4 border-2 border-gray-100 border-dashed rounded-lg">
         <div class="flex justify-between items-center">
@@ -48,9 +50,7 @@
                 <li>
                     <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-target="#new-patients" data-label="New Patients">New Patients</a>
                 </li>
-                <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-target="#old-patients" data-label="Old Patients">Old Patients</a>
-                </li>
+
             </ul>
         </div>
 
@@ -62,9 +62,6 @@
                 </li>
                 <li class="me-2" role="presentation">
                     <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300" id="dashboard-styled-tab" data-tabs-target="#new-patients" type="button" role="tab" aria-controls="dashboard" aria-selected="false">New Patients</button>
-                </li>
-                <li class="me-2" role="presentation">
-                    <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300" id="settings-styled-tab" data-tabs-target="#old-patients" type="button" role="tab" aria-controls="settings" aria-selected="false">Old Patients</button>
                 </li>
             </ul>
         </div>
@@ -181,31 +178,31 @@
                             </tr>
                         </thead>
                         <tbody>
-
+                            @foreach ($new_patients as $newPatients)
                             <tr class="bg-white border-b ">
                                 <td class="px-6 py-4">
-                                    1
+                                    {{$newPatients -> patient_id}}
                                 </td>
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    Dugdug
+                                    {{$newPatients -> patient_name}}
                                 </th>
                                 <td class="px-6 py-4">
-                                    19
+                                    {{$newPatients -> age}}
                                 </td>
                                 <td class="px-6 py-4">
-                                    09123456789
+                                    {{$newPatients -> phone}}
                                 </td>
                                 <td class="px-6 py-4">
-                                    Dr. Pang Hee
+                                    {{$newPatients -> doctor}}
                                 </td>
                                 <td class="px-6 py-4">
-                                    Braces gamit alambre
+                                    {{$newPatients -> service}}
                                 </td>
                                 <td class="px-6 py-4">
                                     <button class="bg-curious-blue-500 text-white rounded-lg px-6 py-2 hover:bg-curious-blue-600">Patient Info</button>
                                 </td>
                             </tr>
-
+                            @endforeach
                         </tbody>
                     </table>
 
@@ -223,62 +220,6 @@
                     </div>
                     <input type="text" id="table-search" class="block pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search for patient....">
                 </div>
-            </div>
-            <div class="relative overflow-x-auto shadow-md mt-4 rounded-lg">
-                <table class="w-full text-sm text-left rtl:text-right text-gray-500">
-                    <thead class="text-xs text-gray-700 uppercase bg-curious-blue-100">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
-                                Patient ID
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Patient Name
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Age
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Mobile
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Dr. Assigned
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Recent Treatment
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Action
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="bg-white border-b ">
-                            <td class="px-6 py-4">
-                                1
-                            </td>
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                Elega
-                            </th>
-                            <td class="px-6 py-4">
-                                52
-                            </td>
-                            <td class="px-6 py-4">
-                                09998886666
-                            </td>
-                            <td class="px-6 py-4">
-                                Dr. Spakol
-                            </td>
-                            <td class="px-6 py-4">
-                                Burst fade na ipin
-                            </td>
-                            <td class="px-6 py-4">
-                                <button class="bg-curious-blue-500 text-white rounded-lg px-6 py-2 hover:bg-curious-blue-600">Patient Info</button>
-
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
             </div>
         </div>
 

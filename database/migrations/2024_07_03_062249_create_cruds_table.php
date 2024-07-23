@@ -11,7 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('add_patient', function (Blueprint $table) {
+        Schema::create('all_patient', function (Blueprint $table) {
+            $table->string('patient_name');
+            $table->string('age');
+            $table->text('phone');
+            $table->string('doctor');
+            $table->json('service');
+            $table->timestamps();
+        });
+        Schema::create('new_patient', function (Blueprint $table) {
             $table->string('patient_name');
             $table->string('age');
             $table->text('phone');

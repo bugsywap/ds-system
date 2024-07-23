@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use MongoDB\Laravel\Eloquent\Model;
 
-class Crud extends Model
+class NewPatient extends Model
 {
     use HasFactory;
     protected $connection = 'mongodb';
-    protected $collection = 'all_patient';
+    protected $collection = 'new_patient';
 
 
     protected $fillable = [

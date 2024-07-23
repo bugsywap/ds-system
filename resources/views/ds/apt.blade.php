@@ -167,9 +167,13 @@
                                 <td class="px-6 py-4 w-96">
                                     Lumolobo Mata , Tumitibok puso pag nakikita ka, nag dadry lalamunan pag kausap ka
                                 </td>
-                                <td class="flex justify-between items-center px-6 py-4 w-96">
-                                    <button class="bg-shamrock-400 text-white rounded-lg px-6 py-2 hover:bg-shamrock-500">Confirm Patient</button>
-                                    <button class="bg-curious-blue-400 text-white rounded-lg px-4 py-2 hover:bg-curious-blue-500">Reschedule Patient</button>
+                                <td class="flex flex-col items-center px-6 py-4 w-56">
+                                    <div class="pb-2">
+                                        <button class="bg-shamrock-400 text-white rounded-lg px-8 py-2 hover:bg-shamrock-500">Confirm Patient</button>
+                                    </div>
+                                    <div>
+                                        <button class="bg-curious-blue-400 text-white rounded-lg px-5 py-2 hover:bg-curious-blue-500">Reschedule Patient</button>
+                                    </div>
                                 </td>
                             </tr>
 
